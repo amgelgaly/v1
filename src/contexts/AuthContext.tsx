@@ -16,23 +16,33 @@ interface AuthContextType {
 const AuthContext = createContext<AuthContextType | null>(null);
 
 export const AuthProvider = ({ children }: { children: ReactNode }) => {
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
-  const [user, setUser] = useState<User | null>(null);
+  const [isAuthenticated, setIsAuthenticated] = useState(() => {
+    return localStorage.getItem('isAuthenticated') === 'true';
+  });
+  const [user, setUser] = useState<User | null>(() => {
+    const storedUser = localStorage.getItem('user');
+    return storedUser ? JSON.parse(storedUser) : null;
+  });
 
   const login = async (email: string, password: string) => {
     // TODO: Implement actual authentication logic here
     setIsAuthenticated(true);
+    localStorage.setItem('isAuthenticated', 'true');
     // Mock user data
-    setUser({
+    const mockUser = {
       name: "مستخدم تجريبي",
       email: email,
       joinDate: new Date().toISOString(),
-    });
+    };
+    setUser(mockUser);
+    localStorage.setItem('user', JSON.stringify(mockUser));
   };
 
   const logout = () => {
     setIsAuthenticated(false);
     setUser(null);
+    localStorage.removeItem('isAuthenticated');
+    localStorage.removeItem('user');
   };
 
   return (

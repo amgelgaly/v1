@@ -11,7 +11,7 @@ const AccountBalanceCard = () => {
       <CardContent>
         <p className="text-2xl font-bold">500 ر.س</p>
         <Button className="mt-4 w-full" asChild>
-                  <a href="/orders/Request">شحن الرصيد</a>
+                  <a href="/profile/orders">شحن الرصيد</a>
                 </Button>
       </CardContent>
     </Card>

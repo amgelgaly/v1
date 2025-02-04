@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import ContactForm from "@/components/sections/ContactForm";
 import ContactInfo from "@/components/sections/ContactInfo";
+import ContactDetailsForm from "@/components/sections/ContactDetailsForm";
 import Footer from "@/components/layout/Footer";
 import { motion } from "framer-motion";
 
@@ -27,8 +28,10 @@ const Contact = () => {
         <div className="grid md:grid-cols-2 gap-12">
           <ContactInfo />
           <ContactForm />
-          <h1>Hello</h1>
         </div>
+        <ContactDetailsForm />
+
+
       </div>
       
     </motion.div>

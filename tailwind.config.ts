@@ -25,7 +25,7 @@ export default {
         background: "#FFFFFF",
         foreground: "#2D2D2D",
         primary: {
-          DEFAULT: "#FF3366",
+          DEFAULT: "#fc2f2f",
           foreground: "#FFFFFF",
         },
         secondary: {
@@ -41,6 +41,10 @@ export default {
           foreground: "#FFFFFF",
         },
         card: {
+          DEFAULT: "#FFFFFF",
+          foreground: "#2D2D2D",
+        },
+        popover: {
           DEFAULT: "#FFFFFF",
           foreground: "#2D2D2D",
         },
