@@ -247,7 +247,7 @@ const EnhancedKanbanBoard: React.FC<EnhancedKanbanBoardProps> = ({ initialTasks 
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.3 }}
-              className="bg-gray-50 p-4 rounded-lg"
+              className="p-4 rounded-lg"
             >
               <h3 className="text-lg font-semibold mb-4 text-center">{column.title}</h3>
               <SortableContext

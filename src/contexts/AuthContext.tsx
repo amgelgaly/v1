@@ -6,6 +6,8 @@ interface User {
   joinDate: string;
 }
 
+export type { User };
+
 interface AuthContextType {
   isAuthenticated: boolean;
   user: User | null;
@@ -13,6 +15,7 @@ interface AuthContextType {
   logout: () => void;
 }
 
+export type { AuthContextType };
 const AuthContext = createContext<AuthContextType | null>(null);
 
 export const AuthProvider = ({ children }: { children: ReactNode }) => {
