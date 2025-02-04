@@ -44,9 +44,6 @@ const OrderSchedulePage: React.FC = () => {
           <div className="bg-white rounded-lg shadow-md p-6">
             <ServiceTracker />
           </div>
-          <div className="bg-white rounded-lg shadow-md p-6">
-            <EnhancedKanbanBoard initialTasks={initialOrders} />
-          </div>
         </div>
       </div>
     </div>

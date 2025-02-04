@@ -113,14 +113,6 @@ const Navbar = () => {
                 </Button>
               ))}
 
-              <Button
-                variant="ghost"
-                onClick={() => handleNavigation('/order-schedule')}
-                className="text-gray-900 dark:text-gray-100 hover:text-primary transition-colors duration-200"
-              >
-                <ShoppingCart className="h-5 w-5 mr-2 rtl:ml-2 rtl:mr-0" />
-                {menuItems[language].orderSchedule}
-              </Button>
 
               {isAuthenticated ? (
                 <Button

@@ -3,7 +3,7 @@ import Navbar from "@/components/layout/Navbar";
 import Hero from "@/components/sections/Hero";
 import Services from "@/components/sections/Services";
 import Courses from "@/components/sections/Courses";
-import Contact from "@/components/sections/Contact";
+import Contact from '@/pages/contact/Contact';
 import { motion } from "framer-motion";
 import { Separator } from "@/components/ui/separator";
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
@@ -26,6 +26,7 @@ import BlogPost from '@/pages/blog/BlogPost';
 import NotFound from '@/pages/error/NotFound';
 import ProtectedRoute from '@/components/auth/ProtectedRoute';
 import ErrorBoundary from '@/components/error/ErrorBoundary'; // Import ErrorBoundary
+import Footer from "@/components/layout/Footer";
 
 function App() {
   useEffect(() => {
@@ -53,8 +54,10 @@ function App() {
           <Route path="/courses" element={<CoursesPage />} />
           <Route path="/blog" element={<Blog />} />
           <Route path="/blog/:id" element={<BlogPost />} />
+          <Route path="/contact" element={<Contact />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
+        <Footer />
       </ErrorBoundary>
     </BrowserRouter>
   );
