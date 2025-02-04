@@ -1,6 +1,5 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import EnhancedKanbanBoard from "@/components/kanban/EnhancedKanbanBoard";
-import Footer from "@/components/layout/Footer";
 
 const initialTasks = [
   {
@@ -46,7 +45,6 @@ const OrderSchedule = () => {
           <EnhancedKanbanBoard initialTasks={initialTasks} />
         </CardContent>
       </Card>
-      
     </div>
   );
 };

@@ -1,10 +1,9 @@
-import OrderSchedule from '@/pages/orders/OrderSchedule';
-
 import { useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { PenTool, Image, Video, Edit, ArrowRight, ArrowLeft } from 'lucide-react';
+
 const features = [
   {
     icon: PenTool,
@@ -120,9 +119,9 @@ const ContentCreation = () => {
               </p>
             </div>
             <div className="flex-1">
-              <img
-                src="/images/content-creation.jpg"
-                alt="إنشاء المحتوى"
+              <img 
+                src="/images/content-creation.jpg" 
+                alt="إنشاء المحتوى" 
                 className="rounded-xl shadow-lg w-full"
               />
             </div>
@@ -186,7 +185,7 @@ const ContentCreation = () => {
                       </li>
                     ))}
                   </ul>
-                  <Button onClick={() => navigate('/request')} className="w-full mt-8 bg-[#fc2f2f] hover:bg-[#fc2f2f]/90">
+                  <Button className="w-full mt-8 bg-[#fc2f2f] hover:bg-[#fc2f2f]/90">
                     اطلب الخدمة الآن
                   </Button>
                 </CardContent>
@@ -203,7 +202,7 @@ const ContentCreation = () => {
           <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
             دعنا نساعدك في إنشاء محتوى يميز علامتك التجارية ويجذب جمهورك المستهدف
           </p>
-          <Button
+          <Button 
             size="lg"
             className="bg-[#fc2f2f] hover:bg-[#fc2f2f]/90 text-white px-8 py-6 text-lg rounded-xl"
           >
@@ -212,7 +211,6 @@ const ContentCreation = () => {
           </Button>
         </div>
       </div>
-      {/* Removed OrderSchedule component here */}
     </div>
   );
 };

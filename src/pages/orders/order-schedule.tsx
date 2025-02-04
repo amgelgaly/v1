@@ -1,11 +1,10 @@
 import React from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import EnhancedKanbanBoard from '@/components/kanban/EnhancedKanbanBoard';
 import { Task } from '@/components/kanban/TaskCard';
 import { Card } from '@/components/ui/card';
 import ServiceTracker from '@/components/orders/ServiceTracker';
 import PageHeader from '@/components/layout/PageHeader';
-import { Button } from "@/components/ui/button";
 
 const initialOrders: Task[] = [
   {
@@ -30,8 +29,7 @@ const initialOrders: Task[] = [
 
 const OrderSchedulePage: React.FC = () => {
   const { id } = useParams();
-  const navigate = useNavigate();
-
+  
   return (
     <div className="min-h-screen bg-gray-50">
       <div className="pt-20">
@@ -44,10 +42,10 @@ const OrderSchedulePage: React.FC = () => {
       <div className="container mx-auto px-4 py-8">
         <div className="grid gap-8 md:gap-10">
           <div className="bg-white rounded-lg shadow-md p-6">
-            <Button onClick={() => navigate('/request')} className="w-full bg-[#fc2f2f] hover:bg-[#fc2f2f]/90 text-white text-lg py-3 mb-4">
-              اضافة طلب جديد
-            </Button>
             <ServiceTracker />
+          </div>
+          <div className="bg-white rounded-lg shadow-md p-6">
+            <EnhancedKanbanBoard initialTasks={initialOrders} />
           </div>
         </div>
       </div>

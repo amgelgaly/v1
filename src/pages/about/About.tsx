@@ -1,5 +1,4 @@
 import React from 'react';
-import Footer from '@/components/layout/Footer';
 import { Container } from '@/components/ui/container';
 import { motion } from 'framer-motion';
 import PageHeader from '@/components/layout/PageHeader';
@@ -38,7 +37,6 @@ const AboutPage = () => {
           </div>
         </div>
       </Container>
-      
     </div>
   );
 };

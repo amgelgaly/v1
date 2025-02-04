@@ -1,9 +1,8 @@
 import { useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { Button } from '@/components/ui/button';
 import { Search, LineChart, Link2, Zap, ArrowRight, ArrowLeft } from 'lucide-react';
-import PageHeader from '@/components/layout/PageHeader';
 
 const features = [
   {
@@ -94,7 +93,12 @@ const Seo = () => {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      
+      <div className="pt-20">
+        <PageHeader 
+          title="تحسين محركات البحث"
+          subtitle="حسن ظهور موقعك في نتائج البحث وزد من وصول عملائك المحتملين"
+        />
+      </div>
 
       <div className="container mx-auto px-4 py-8">
         {/* Back Button */}
@@ -121,9 +125,9 @@ const Seo = () => {
                 </p>
               </div>
               <div className="flex-1">
-                <img
-                  src="/images/seo.jpg"
-                  alt="تحسين محركات البحث"
+                <img 
+                  src="/images/seo.jpg" 
+                  alt="تحسين محركات البحث" 
                   className="rounded-xl shadow-lg w-full"
                 />
               </div>
@@ -187,7 +191,7 @@ const Seo = () => {
                         </li>
                       ))}
                     </ul>
-                    <Button onClick={() => navigate('/request')} className="w-full mt-8 bg-[#fc2f2f] hover:bg-[#fc2f2f]/90">
+                    <Button className="w-full mt-8 bg-[#fc2f2f] hover:bg-[#fc2f2f]/90">
                       اطلب الخدمة الآن
                     </Button>
                   </CardContent>
@@ -204,7 +208,7 @@ const Seo = () => {
             <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
               دعنا نساعدك في تحسين ترتيب موقعك في محركات البحث وزيادة الزيارات العضوية
             </p>
-            <Button
+            <Button 
               size="lg"
               className="bg-[#fc2f2f] hover:bg-[#fc2f2f]/90 text-white px-8 py-6 text-lg rounded-xl"
             >

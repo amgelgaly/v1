@@ -25,7 +25,7 @@ export default {
         background: "#FFFFFF",
         foreground: "#2D2D2D",
         primary: {
-          DEFAULT: "#fc2f2f",
+          DEFAULT: "#FC2F2F",
           foreground: "#FFFFFF",
         },
         secondary: {
@@ -44,10 +44,14 @@ export default {
           DEFAULT: "#FFFFFF",
           foreground: "#2D2D2D",
         },
-        popover: {
-          DEFAULT: "#FFFFFF",
-          foreground: "#2D2D2D",
-        },
+        dark: {
+         background: "#2D2D2D",
+         foreground: "#FFFFFF",
+         card: {
+           DEFAULT: "#2D2D2D",
+           foreground: "#FFFFFF",
+         },
+       },
       },
       fontFamily: {
         sans: ["Inter", "IBM Plex Sans Arabic", "sans-serif"],

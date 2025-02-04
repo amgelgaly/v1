@@ -4,7 +4,6 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Megaphone, PenTool, Search, Share2, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import PageHeader from "@/components/layout/PageHeader";
-import Footer from "@/components/layout/Footer";
 
 const services = [
   {
@@ -126,7 +125,6 @@ const Services = () => {
           ))}
         </div>
       </div>
-      
     </div>
   );
 }

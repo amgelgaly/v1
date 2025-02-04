@@ -137,9 +137,9 @@ const DigitalMarketing = () => {
               </p>
             </div>
             <div className="flex-1">
-              <img
-                src="/images/digital-marketing.jpg"
-                alt="التسويق الرقمي"
+              <img 
+                src="/images/digital-marketing.jpg" 
+                alt="التسويق الرقمي" 
                 className="rounded-xl shadow-lg w-full"
               />
             </div>
@@ -203,10 +203,9 @@ const DigitalMarketing = () => {
                       </li>
                     ))}
                   </ul>
-                  <Button onClick={() => navigate('/request')}  className="w-full mt-8 bg-[#fc2f2f] hover:bg-[#fc2f2f]/90">
+                  <Button className="w-full mt-8 bg-[#fc2f2f] hover:bg-[#fc2f2f]/90">
                     اطلب الخدمة الآن
                   </Button>
-
                 </CardContent>
               </Card>
             ))}
@@ -221,7 +220,7 @@ const DigitalMarketing = () => {
           <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
             دعنا نساعدك في تحقيق أهدافك التسويقية وتنمية عملك في العالم الرقمي
           </p>
-          <Button
+          <Button 
             size="lg"
             className="bg-[#fc2f2f] hover:bg-[#fc2f2f]/90 text-white px-8 py-6 text-lg rounded-xl"
           >
@@ -231,6 +230,20 @@ const DigitalMarketing = () => {
         </div>
       </div>
 
+      <h2 className="text-2xl font-bold mb-4 text-center">Our Portfolio</h2>
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+        {previousWorks.map((work, index) => (
+          <Card key={index} className="shadow-md">
+            <CardHeader>
+              <Image src={work.image} alt={work.title} className="h-48 w-full object-cover rounded-lg" />
+              <CardTitle className="text-center">{work.title}</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <CardDescription className="text-center">{work.description}</CardDescription>
+            </CardContent>
+          </Card>
+        ))}
+      </div>
     </div>
   );
 };

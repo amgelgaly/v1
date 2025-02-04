@@ -3,7 +3,6 @@ import { Badge } from "@/components/ui/badge";
 import { Clock, User } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { blogPostsData } from "./BlogPost";
-import Footer from "@/components/layout/Footer";
 import PageHeader from "@/components/layout/PageHeader";
 
 const Blog = () => {
@@ -66,7 +65,6 @@ const Blog = () => {
           ))}
         </div>
       </div>
-      
     </div>
   );
 };

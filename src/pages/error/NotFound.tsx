@@ -1,7 +1,7 @@
+import PageHeader from "@/components/layout/PageHeader";
+
 import { useLocation } from "react-router-dom";
 import { useEffect } from "react";
-import PageHeader from "../../components/layout/PageHeader";
-import Footer from "@/components/layout/Footer";
 
 const NotFound = () => {
   const location = useLocation();
@@ -31,7 +31,6 @@ const NotFound = () => {
           </a>
         </div>
       </div>
-      
     </div>
   );
 };

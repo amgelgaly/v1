@@ -33,17 +33,17 @@ import {
 import { motion, AnimatePresence } from 'framer-motion';
 
 const defaultColumns = {
-  'pending': {
+  'قيد الانتظار': {
     id: 'pending',
     title: 'قيد الانتظار',
     taskIds: [],
   },
-  'in-progress': {
+  'جاري التنفيذ': {
     id: 'in-progress',
     title: 'جاري التنفيذ',
     taskIds: [],
   },
-  'completed': {
+  'مكتمل': {
     id: 'completed',
     title: 'مكتمل',
     taskIds: [],
@@ -61,10 +61,10 @@ interface EnhancedKanbanBoardProps {
 }
 
 const EnhancedKanbanBoard: React.FC<EnhancedKanbanBoardProps> = ({ initialTasks = [] }) => {
-  const [tasks, setTasks] = useState<Task[]>(initialTasks || []);
+  const [tasks, setTasks] = useState<Task[]>(initialTasks);
   const [columns, setColumns] = useState<Record<string, Column>>(defaultColumns);
-  const [activeId, setActiveId] = useState<number | string | null>(null);
-  const [isNewTaskDialogOpen, setIsNewTaskDialogOpen] = useState<boolean>(false);
+  const [activeId, setActiveId] = useState<number | null>(null);
+  const [isNewTaskDialogOpen, setIsNewTaskDialogOpen] = useState(false);
   const [editingTask, setEditingTask] = useState<Task | null>(null);
 
   const sensors = useSensors(
@@ -82,48 +82,16 @@ const EnhancedKanbanBoard: React.FC<EnhancedKanbanBoardProps> = ({ initialTasks 
   const handleDragEnd = (event: DragEndEvent) => {
     const { active, over } = event;
 
-    if (!over) {
-      setActiveId(null);
-      return;
-    }
-
-    if (over && active.id !== over.id && over.id in columns) { // Re-add column validation
-      console.log('DRAG END: activeId', active.id, 'overId', over.id);
-      const activeTask = tasks.find(task => task.id === Number(active.id)); // Ensure active.id is treated as a number
+    if (over && active.id !== over.id) {
+      const activeTask = tasks.find(t => t.id === active.id);
       if (activeTask) {
-        const newStatus = over.id.toString();
         const updatedTasks = tasks.map(task =>
-          task.id === Number(active.id)
-            ? { ...task, status: newStatus }
+          task.id === active.id
+            ? { ...task, status: over.id as string }
             : task
         );
         setTasks(updatedTasks);
-
-        setColumns(prevColumns => {
-          const updatedColumns = { ...prevColumns };
-          const sourceColumnId = activeTask.status;
-          const destinationColumnId = newStatus;
-
-          if (sourceColumnId !== destinationColumnId) {
-            const sourceTaskIds = Array.from(updatedColumns[sourceColumnId].taskIds);
-            const destinationTaskIds = Array.from(updatedColumns[destinationColumnId].taskIds);
-
-            // Remove task ID from source column
-            updatedColumns[sourceColumnId].taskIds = sourceTaskIds.filter(
-              id => id !== Number(active.id)
-            );
-            // Add task ID to destination column
-            updatedColumns[destinationColumnId].taskIds = [
-              ...destinationTaskIds,
-              Number(active.id),
-            ];
-          }
-          console.log('Updated Columns State:', updatedColumns); // Log updated columns state
-          return updatedColumns;
-        });
       }
-    } else {
-      console.log('Invalid drop target or same column');
     }
 
     setActiveId(null);
@@ -134,7 +102,7 @@ const EnhancedKanbanBoard: React.FC<EnhancedKanbanBoardProps> = ({ initialTasks 
       id: Date.now(),
       title: newTask.title || '',
       description: newTask.description || '',
-      status: 'pending',
+      status: 'قيد الانتظار',
       priority: newTask.priority || 'medium',
       dueDate: newTask.dueDate,
       assignee: newTask.assignee,
@@ -241,7 +209,7 @@ const EnhancedKanbanBoard: React.FC<EnhancedKanbanBoardProps> = ({ initialTasks 
 
   return (
     <div className="flex flex-col gap-4">
-      <div className="flex justify-between">
+      <div className="flex justify-end">
         <motion.div
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
@@ -250,7 +218,7 @@ const EnhancedKanbanBoard: React.FC<EnhancedKanbanBoardProps> = ({ initialTasks 
             <DialogTrigger asChild>
               <Button>
                 <Plus className="mr-2 h-4 w-4" />
-                إضافة مهمة
+                إضافة مهمة جديدة
               </Button>
             </DialogTrigger>
             <DialogContent>
@@ -264,24 +232,6 @@ const EnhancedKanbanBoard: React.FC<EnhancedKanbanBoardProps> = ({ initialTasks 
             </DialogContent>
           </Dialog>
         </motion.div>
-        <motion.div
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-        >
-          <Button onClick={() => {
-            const newColumnId = `column-${Date.now()}`;
-            setColumns({
-              ...columns,
-              [newColumnId]: {
-                id: newColumnId,
-                title: 'عمود جديد',
-                taskIds: [],
-              },
-            });
-          }}>
-            إضافة عمود
-          </Button>
-        </motion.div>
       </div>
 
       <DndContext
@@ -290,7 +240,7 @@ const EnhancedKanbanBoard: React.FC<EnhancedKanbanBoardProps> = ({ initialTasks 
         onDragStart={handleDragStart}
         onDragEnd={handleDragEnd}
       >
-        <div className="grid grid-flow-col auto-cols-fr gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           {Object.entries(columns).map(([status, column]) => (
             <motion.div
               key={column.id}
