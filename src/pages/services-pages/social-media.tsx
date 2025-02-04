@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import PageHeader from '@/components/layout/PageHeader';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -242,13 +243,13 @@ const SocialMedia = () => {
                         </li>
                       ))}
                     </ul>
-                    <Button 
+                    <Button
                       className={`w-full mt-8 ${
-                        index === 1 
-                          ? 'bg-[#fc2f2f] hover:bg-[#fc2f2f]/90' 
+                        index === 1
+                          ? 'bg-[#fc2f2f] hover:bg-[#fc2f2f]/90'
                           : 'bg-gray-900 hover:bg-gray-800'
                       }`}
-                      onClick={handleContactClick}
+                      onClick={() => navigate('/request')}
                     >
                       اطلب الخدمة الآن
                     </Button>
@@ -284,10 +285,10 @@ const SocialMedia = () => {
             <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
               دعنا نساعدك في بناء علامة تجارية قوية وجذب المزيد من العملاء عبر منصات التواصل الاجتماعي
             </p>
-            <Button 
+            <Button
               size="lg"
               className="bg-[#fc2f2f] hover:bg-[#fc2f2f]/90 text-white px-8 py-6 text-lg rounded-xl"
-              onClick={handleContactClick}
+              onClick={() => navigate('/request')}
             >
               ابدأ الآن
               <ArrowRight className="w-5 h-5 mr-2" />

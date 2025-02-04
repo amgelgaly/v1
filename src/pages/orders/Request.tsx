@@ -1,4 +1,5 @@
 import React from 'react';
+import ProtectedRoute from '@/components/auth/ProtectedRoute';
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -20,19 +21,20 @@ const Request = () => {
   const language = document.documentElement.dir === 'rtl' ? 'ar' : 'en';
 
   return (
-    <div className="min-h-screen bg-gray-50 pt-16">
-      
-        <PageHeader
-          title={language === 'ar' ? 'طلب خدمة' : 'Request Service'}
-          subtitle={language === 'ar'
-            ? 'يرجى ملء النموذج التالي وسنقوم بالتواصل معك في أقرب وقت ممكن'
-            : 'Please fill out the form below and we will contact you as soon as possible'}
-        />
-      
+    <ProtectedRoute>
+      <div className="min-h-screen bg-gray-50 pt-16">
+        
+          <PageHeader
+            title={language === 'ar' ? 'طلب خدمة' : 'Request Service'}
+            subtitle={language === 'ar'
+              ? 'يرجى ملء النموذج التالي وسنقوم بالتواصل معك في أقرب وقت ممكن'
+              : 'Please fill out the form below and we will contact you as soon as possible'}
+          />
+        
 
-      <div className="container max-w-[800px] mx-auto px-4 py-8">
+        <div className="container max-w-[800px] mx-auto px-4 py-8">
 
-        <Card className="border-2 border-gray-100">
+          <Card className="border-2 border-gray-100">
           <CardHeader className="space-y-1 pb-4">
             <CardTitle className="text-2xl text-center">تفاصيل الطلب</CardTitle>
           </CardHeader>
@@ -160,6 +162,7 @@ const Request = () => {
         </Card>
       </div>
     </div>
+    </ProtectedRoute>
   );
 };
 

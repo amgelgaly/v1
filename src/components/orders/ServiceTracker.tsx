@@ -100,6 +100,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ service, onUpdate }) => {
 };
 
 const ServiceTracker: React.FC = () => {
+  const navigate = useNavigate();
   const [services, setServices] = useState<Service[]>([
     {
       id: 1,
@@ -132,7 +133,10 @@ const ServiceTracker: React.FC = () => {
   return (
     <Card className="w-full">
       <CardHeader>
-        <CardTitle className="text-2xl font-bold text-right">تتبع الخدمات</CardTitle>
+        <div className="flex items-center justify-between">
+          <CardTitle className="text-2xl font-bold text-right">تتبع الخدمات</CardTitle>
+          <Button onClick={() => navigate('/request')}>اطلب خدمة جديدة</Button>
+        </div>
       </CardHeader>
       <CardContent>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">

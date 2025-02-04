@@ -1,3 +1,5 @@
+import PageHeader from '@/components/layout/PageHeader';
+// import { useNavigate } from 'react-router-dom';
 import { useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
@@ -191,7 +193,10 @@ const Seo = () => {
                         </li>
                       ))}
                     </ul>
-                    <Button className="w-full mt-8 bg-[#fc2f2f] hover:bg-[#fc2f2f]/90">
+                    <Button
+                      className="w-full mt-8 bg-[#fc2f2f] hover:bg-[#fc2f2f]/90"
+                      onClick={() => navigate('/request')}
+                    >
                       اطلب الخدمة الآن
                     </Button>
                   </CardContent>
@@ -208,9 +213,10 @@ const Seo = () => {
             <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
               دعنا نساعدك في تحسين ترتيب موقعك في محركات البحث وزيادة الزيارات العضوية
             </p>
-            <Button 
+            <Button
               size="lg"
               className="bg-[#fc2f2f] hover:bg-[#fc2f2f]/90 text-white px-8 py-6 text-lg rounded-xl"
+              onClick={() => navigate('/request')}
             >
               احصل على تحليل مجاني لموقعك
               <ArrowRight className="w-5 h-5 mr-2" />
