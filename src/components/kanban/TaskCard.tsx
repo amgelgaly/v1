@@ -11,6 +11,8 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import TaskDetailsDialog from './TaskDetailsDialog';
+import { useState } from 'react';
 
 export interface Task {
   id: number;
@@ -50,11 +52,13 @@ const TaskCard: React.FC<TaskCardProps> = ({ task, onEdit, onDelete }) => {
     medium: 'bg-yellow-100 text-yellow-800',
     high: 'bg-red-100 text-red-800',
   };
+  const [isDetailsOpen, setIsDetailsOpen] = useState(false);
 
   return (
-    <motion.div
-      ref={setNodeRef}
-      style={style}
+    <>
+      <motion.div
+        ref={setNodeRef}
+        style={style}
       {...attributes}
       {...listeners}
       initial={{ opacity: 0, y: 20 }}
@@ -69,7 +73,10 @@ const TaskCard: React.FC<TaskCardProps> = ({ task, onEdit, onDelete }) => {
             className="flex items-center justify-between"
             layout
           >
-            <CardTitle className="text-base font-medium">{task.title}</CardTitle>
+            <CardTitle
+              className="text-base font-medium cursor-pointer"
+              onClick={() => setIsDetailsOpen(true)}
+            >{task.title}</CardTitle>
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
                 <Button variant="ghost" size="icon" className="h-8 w-8">
@@ -129,7 +136,9 @@ const TaskCard: React.FC<TaskCardProps> = ({ task, onEdit, onDelete }) => {
           )}
         </CardContent>
       </Card>
+      <TaskDetailsDialog task={task} open={isDetailsOpen} onOpenChange={setIsDetailsOpen} />
     </motion.div>
+    </>
   );
 };
 

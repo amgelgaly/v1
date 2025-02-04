@@ -104,12 +104,7 @@ const SocialMedia = () => {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      <div className="pt-20">
-        <PageHeader 
-          title="إدارة وسائل التواصل الاجتماعي"
-          subtitle="نساعدك في بناء وتعزيز تواجدك على منصات التواصل الاجتماعي"
-        />
-      </div>
+      
 
       <div className="container mx-auto px-4 py-8">
         {/* Back Button */}
@@ -244,13 +239,13 @@ const SocialMedia = () => {
                         </li>
                       ))}
                     </ul>
-                    <Button 
+                    <Button
+                      onClick={() => navigate('/request')}
                       className={`w-full mt-8 ${
-                        index === 1 
-                          ? 'bg-[#fc2f2f] hover:bg-[#fc2f2f]/90' 
+                        index === 1
+                          ? 'bg-[#fc2f2f] hover:bg-[#fc2f2f]/90'
                           : 'bg-gray-900 hover:bg-gray-800'
                       }`}
-                      onClick={handleContactClick}
                     >
                       اطلب الخدمة الآن
                     </Button>

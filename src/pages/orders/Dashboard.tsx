@@ -88,9 +88,6 @@ const Dashboard = () => {
               </div>
 
               {/* Kanban Board */}
-              <div className="bg-gray-50 rounded-xl p-4">
-                <KanbanBoard tasks={services} />
-              </div>
             </div>
           </div>
         </div>

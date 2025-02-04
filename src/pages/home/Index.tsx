@@ -25,12 +25,6 @@ const IndexPage = () => {
             className="w-full bg-gradient-to-b from-gray-50/50 to-white dark:from-gray-900/50 dark:to-background"
           >
             <div className="container py-24 space-y-8">
-              <div className="text-center space-y-4">
-                <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">الرئيسية</h2>
-                            <p className="mx-auto max-w-[700px] text-gray-500 md:text-xl/relaxed dark:text-gray-400">
-                               هذه هي الصفحة الرئيسية لموقعنا. هنا يمكنك العثور على كل ما تحتاجه لبدء رحلتك التسويقية.
-                            </p>
-              </div>
               <Separator className="my-8" />
               <Services />
             </div>
@@ -44,12 +38,6 @@ const IndexPage = () => {
             className="w-full"
           >
             <div className="container py-24 space-y-8">
-              <div className="text-center space-y-4">
-                <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">الدورات التدريبية</h2>
-                            <p className="mx-auto max-w-[700px] text-gray-500 md:text-xl/relaxed dark:text-gray-400">
-                               اكتشف مجموعتنا المتنوعة من الدورات التدريبية التي ستساعدك على تطوير مهاراتك التسويقية والارتقاء بمستوى أدائك.
-                            </p>
-              </div>
               <Separator className="my-8" />
               <Courses />
             </div>

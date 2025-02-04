@@ -27,6 +27,7 @@ const Contact = () => {
         <div className="grid md:grid-cols-2 gap-12">
           <ContactInfo />
           <ContactForm />
+          <h1>Hello</h1>
         </div>
       </div>
       

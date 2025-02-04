@@ -186,7 +186,7 @@ const ContentCreation = () => {
                       </li>
                     ))}
                   </ul>
-                  <Button className="w-full mt-8 bg-[#fc2f2f] hover:bg-[#fc2f2f]/90">
+                  <Button onClick={() => navigate('/request')} className="w-full mt-8 bg-[#fc2f2f] hover:bg-[#fc2f2f]/90">
                     اطلب الخدمة الآن
                   </Button>
                 </CardContent>
@@ -212,7 +212,7 @@ const ContentCreation = () => {
           </Button>
         </div>
       </div>
-      <OrderSchedule /> {/* Added OrderSchedule component here */}
+      {/* Removed OrderSchedule component here */}
     </div>
   );
 };

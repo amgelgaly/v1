@@ -13,16 +13,16 @@ const Navbar = () => {
   const { isAuthenticated, logout } = useAuth();
 
   useEffect(() => {
-    if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-      setIsDark(true);
-      document.documentElement.classList.add('dark');
-    }
-    document.documentElement.dir = language === 'ar' ? 'rtl' : 'ltr';
+    // if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+    //   setIsDark(true);
+    //   document.documentElement.classList.add('dark');
+    // }
+    // document.documentElement.dir = language === 'ar' ? 'rtl' : 'ltr';
   }, [language]);
 
   const toggleDarkMode = () => {
-    setIsDark(!isDark);
-    document.documentElement.classList.toggle('dark');
+    // setIsDark(!isDark);
+    // document.documentElement.classList.toggle('dark');
   };
 
   const toggleLanguage = () => {

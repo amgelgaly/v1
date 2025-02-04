@@ -27,6 +27,7 @@ import BlogPost from '@/pages/blog/BlogPost';
 import NotFound from '@/pages/error/NotFound';
 import ProtectedRoute from '@/components/auth/ProtectedRoute';
 import ErrorBoundary from '@/components/error/ErrorBoundary'; // Import ErrorBoundary
+import CourseDetailPage from '@/pages/courses/[id]';
 
 function App() {
   useEffect(() => {
@@ -43,8 +44,8 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/dashboard" element={<ProtectedRoute><Dashboard /></ProtectedRoute>} />
           <Route path="/profile" element={<ProtectedRoute><Profile /></ProtectedRoute>} />
-          <Route path="/request" element={<Request />} />
-          <Route path="/order-schedule" element={<ProtectedRoute><OrderSchedulePage /></ProtectedRoute>} />
+          <Route path="/request" element={<ProtectedRoute><Request /></ProtectedRoute>} />
+          <Route path="/order-schedule" element={<ProtectedRoute><OrderSchedulePage /></ProtectedRoute>}/>
           <Route path="/service-details/:id" element={<ProtectedRoute><ServiceDetailsPage /></ProtectedRoute>} />
           <Route path="/services" element={<ServicesPage />} />
           <Route path="/services/content-creation" element={<ContentCreation />} />
@@ -52,8 +53,10 @@ function App() {
           <Route path="/services/seo" element={<Seo />} />
           <Route path="/services/social-media" element={<SocialMedia />} />
           <Route path="/courses" element={<CoursesPage />} />
+          <Route path="/courses/:id" element={<CourseDetailPage />} />
           <Route path="/blog" element={<Blog />} />
           <Route path="/blog/:id" element={<BlogPost />} />
+          <Route path="/contact" element={<Contact />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
         <Footer />

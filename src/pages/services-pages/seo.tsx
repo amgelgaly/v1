@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
 import { Search, LineChart, Link2, Zap, ArrowRight, ArrowLeft } from 'lucide-react';
 import PageHeader from '@/components/layout/PageHeader';
 
@@ -94,12 +94,7 @@ const Seo = () => {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      <div className="pt-20">
-        <PageHeader
-          title="تحسين محركات البحث"
-          subtitle="حسن ظهور موقعك في نتائج البحث وزد من وصول عملائك المحتملين"
-        />
-      </div>
+      
 
       <div className="container mx-auto px-4 py-8">
         {/* Back Button */}
@@ -192,7 +187,7 @@ const Seo = () => {
                         </li>
                       ))}
                     </ul>
-                    <Button className="w-full mt-8 bg-[#fc2f2f] hover:bg-[#fc2f2f]/90">
+                    <Button onClick={() => navigate('/request')} className="w-full mt-8 bg-[#fc2f2f] hover:bg-[#fc2f2f]/90">
                       اطلب الخدمة الآن
                     </Button>
                   </CardContent>

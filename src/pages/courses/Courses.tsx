@@ -1,11 +1,12 @@
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle, CardDescription, CardFooter } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import { Link } from 'react-router-dom';
 import { Badge } from "@/components/ui/badge";
 import { PlayCircle, Clock, Award, Users } from "lucide-react";
 import Footer from "@/components/layout/Footer";
 import PageHeader from "@/components/layout/PageHeader";
 
-const courses = [
+export const courses = [
   {
     id: 1,
     title: "أساسيات التسويق الرقمي",
@@ -85,53 +86,57 @@ const Courses = () => {
       <div className="container px-4 py-8">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {courses.map((course) => (
-            <Card key={course.id} className="group hover:shadow-lg transition-all duration-300">
-              <div className="relative h-48 overflow-hidden rounded-t-lg">
-                <img
-                  src={course.image}
-                  alt={course.title}
-                  className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
-                />
-                <div className="absolute inset-0 bg-black/40 transition-opacity group-hover:opacity-60" />
-                <Badge className="absolute top-4 right-4 bg-primary text-white">
-                  {course.level}
-                </Badge>
-              </div>
-              <CardHeader>
-                <CardTitle className="text-2xl mb-2">{course.title}</CardTitle>
-                <CardDescription>{course.description}</CardDescription>
-              </CardHeader>
-              <CardContent>
-                <div className="grid grid-cols-3 gap-4 mb-6">
-                  <div className="flex items-center gap-2">
-                    <Clock className="w-5 h-5 text-primary" />
-                    <span className="text-sm">{course.duration}</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <Award className="w-5 h-5 text-primary" />
-                    <span className="text-sm">{course.level}</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <Users className="w-5 h-5 text-primary" />
-                    <span className="text-sm">{course.students} طالب</span>
-                  </div>
+            <Link key={course.id} to={`/courses/${course.id}`}>
+              <Card className="group hover:shadow-lg transition-all duration-300">
+                <div className="relative h-48 overflow-hidden rounded-t-lg">
+                  <img
+                    src={course.image}
+                    alt={course.title}
+                    className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-black/40 transition-opacity group-hover:opacity-60" />
+                  <Badge className="absolute top-4 right-4 bg-primary text-white">
+                    {course.level}
+                  </Badge>
                 </div>
-                <div className="space-y-2">
-                  <h4 className="font-semibold mb-2">المواضيع الرئيسية:</h4>
-                  <ul className="space-y-1">
-                    {course.topics.map((topic, index) => (
-                      <li key={index} className="flex items-center gap-2">
-                        <PlayCircle className="w-4 h-4 text-primary" />
-                        <span className="text-sm">{topic}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-                <Button className="w-full mt-6 bg-primary hover:bg-primary/90">
-                  سجل الآن
-                </Button>
-              </CardContent>
-            </Card>
+                <CardHeader>
+                  <CardTitle className="text-2xl mb-2">{course.title}</CardTitle>
+                  <CardDescription>{course.description}</CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <div className="grid grid-cols-3 gap-4 mb-6">
+                    <div className="flex items-center gap-2">
+                      <Clock className="w-5 h-5 text-primary" />
+                      <span className="text-sm">{course.duration}</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <Award className="w-5 h-5 text-primary" />
+                      <span className="text-sm">{course.level}</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <Users className="w-5 h-5 text-primary" />
+                      <span className="text-sm">{course.students} طالب</span>
+                    </div>
+                  </div>
+                  <div className="space-y-2">
+                    <h4 className="font-semibold mb-2">المواضيع الرئيسية:</h4>
+                    <ul className="space-y-1">
+                      {course.topics.map((topic, index) => (
+                        <li key={index} className="flex items-center gap-2">
+                          <PlayCircle className="w-4 h-4 text-primary" />
+                          <span className="text-sm">{topic}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </CardContent>
+                <CardFooter>
+                  <Button className="w-full bg-primary hover:bg-primary/90">
+                    سجل الآن
+                  </Button>
+                </CardFooter>
+              </Card>
+            </Link>
           ))}
         </div>
       </div>
