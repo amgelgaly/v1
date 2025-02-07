@@ -27,7 +27,7 @@ const Vision = () => {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      <div className="pt-20">
+      <div className="">
         <PageHeader 
           title="رؤيتنا"
           subtitle="نحو مستقبل رقمي مبتكر"

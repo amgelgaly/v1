@@ -103,7 +103,7 @@ const SocialMedia = () => {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      <div className="pt-20">
+      <div className="">
         <PageHeader 
           title="إدارة وسائل التواصل الاجتماعي"
           subtitle="نساعدك في بناء وتعزيز تواجدك على منصات التواصل الاجتماعي"

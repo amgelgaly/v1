@@ -36,7 +36,7 @@ const initialTasks = [
 
 const OrderSchedule = () => {
   return (
-    <div className="container mx-auto py-8 pt-16">
+    <div className="container mx-auto py-8 pt-0">
       <Card className="w-full">
         <CardHeader>
           <CardTitle className="text-3xl font-bold text-center mt-4">جدولة الطلبات</CardTitle>

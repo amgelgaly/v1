@@ -32,7 +32,7 @@ const OrderSchedulePage: React.FC = () => {
   
   return (
     <div className="min-h-screen bg-gray-50">
-      <div className="pt-20">
+      <div className="">
         <PageHeader 
           title={id ? `تفاصيل الخدمة رقم ${id}` : 'جدول الطلبات'}
           subtitle={id ? 'عرض تفاصيل وحالة الخدمة المحددة' : 'إدارة وتتبع حالة الطلبات'}

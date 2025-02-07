@@ -95,7 +95,7 @@ const Seo = () => {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      <div className="pt-20">
+      <div className="">
         <PageHeader 
           title="تحسين محركات البحث"
           subtitle="حسن ظهور موقعك في نتائج البحث وزد من وصول عملائك المحتملين"

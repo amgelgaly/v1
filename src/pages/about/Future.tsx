@@ -1,4 +1,4 @@
-import React from 'react';
+    import React from 'react';
 import { Container } from '@/components/ui/container';
 import { motion } from 'framer-motion';
 import { Card } from '@/components/ui/card';
@@ -55,7 +55,7 @@ const Future = () => {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      <div className="pt-20">
+      <div className="">
         <PageHeader 
           title="مستقبل التسويق والذكاء الاصطناعي"
           subtitle="نبني مستقبل التسويق الرقمي"

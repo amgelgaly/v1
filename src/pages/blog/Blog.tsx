@@ -10,7 +10,7 @@ const Blog = () => {
   const language = document.documentElement.lang === 'ar' ? 'ar' : 'en';
 
   return (
-    <div className="min-h-screen bg-background pt-16">
+    <div className="min-h-screen bg-background pt-0">
       
         <PageHeader
           title={language === 'ar' ? 'المدونة' : 'Blog'}

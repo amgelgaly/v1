@@ -1,13 +1,47 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
-import { Container, Typography } from '@mui/material';
+import { Container, Typography, Grid, Button, Card, CardContent, List, ListItem, ListItemIcon, ListItemText } from '@mui/material';
+import CheckCircleIcon from '@mui/icons-material/CheckCircle';
+import AttachMoneyIcon from '@mui/icons-material/AttachMoney';
+import DescriptionIcon from '@mui/icons-material/Description';
+
+// Dummy service data (replace with actual data fetching later)
+const serviceData = {
+  '1': {
+    name: 'خدمة تصميم المواقع',
+    description: 'نقدم خدمة تصميم مواقع احترافية وعصرية تلبي احتياجات عملك وتساعدك على النمو.',
+    features: [
+      'تصميم متجاوب بالكامل',
+      'تحسين محركات البحث (SEO)',
+      'دعم فني على مدار الساعة',
+      'تصميم فريد وجذاب',
+    ],
+    price: 'تبدأ من 500$',
+  },
+  '2': {
+    name: 'خدمة التسويق الرقمي',
+    description: 'نساعدك في الوصول إلى جمهورك المستهدف وزيادة مبيعاتك من خلال استراتيجيات التسويق الرقمي الفعالة.',
+    features: [
+      'إعلانات جوجل',
+      'التسويق عبر وسائل التواصل الاجتماعي',
+      'التسويق بالمحتوى',
+      'تحليل وتقارير الأداء',
+    ],
+    price: 'تختلف حسب الباقة',
+  },
+};
 
 const ServiceDetails: React.FC = () => {
   const { id } = useParams<{ id: string }>();
+    const hardcodedId = '1'; // Hardcoded service ID
+    console.log('Service ID:', id);
+    const service = serviceData[hardcodedId] || { name: 'Service Not Found', description: '', features: [], price: '' }; // Fallback
+    console.log('Service Data:', service);
+  //const service = serviceData[id] || { name: 'Service Not Found', description: '', features: [], price: '' }; // Fallback - Removed to use hardcoded ID
 
   return (
     <div className="min-h-screen bg-gray-50">
-      <div className="pt-20">
+      <div className="">
         {/* User provided component starts */}
         <div data-component-path="src\components\layout\PageHeader.tsx" data-component-name="div" data-component-line="17" data-component-file="PageHeader.tsx" data-component-content="%7B%22className%22%3A%22max-w-7xl%20mx-auto%20px-4%20sm%3Apx-6%20lg%3Apx-8%20py-4%20flex%20justify-between%20items-center%22%7D" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
           <div data-component-path="src\components\layout\PageHeader.tsx" data-component-name="div" data-component-line="19" data-component-file="PageHeader.tsx" data-component-content="%7B%22className%22%3A%22flex%20items-center%20space-x-4%20rtl%3Aspace-x-reverse%22%7D" className="flex items-center space-x-4 rtl:space-x-reverse">
@@ -47,19 +81,66 @@ const ServiceDetails: React.FC = () => {
         {/* User provided component ends */}
       </div>
 
-      <div className="container mx-auto px-4 py-8">
-        <Container maxWidth="lg" sx={{ py: 4 }}>
-          <Typography variant="h4" component="h1" gutterBottom align="center">
-            تفاصيل الخدمة
-          </Typography>
-          <Typography variant="body1" align="center">
-            الخدمة
-          </Typography>
-          <Typography variant="body1" align="center" style={{ width: '100%' }}>
-            اسم لتبع الخدمة الذي يتبع لها: {id}
-          </Typography>
-        </Container>
-      </div>
+      <Container maxWidth="lg" sx={{ py: 4 }}>
+        <Typography variant="h4" component="h1" gutterBottom align="center">
+          {service.name}
+        </Typography>
+        <Grid container spacing={3}>
+          <Grid item xs={12} md={8}>
+            <Card>
+              <CardContent>
+                <Typography variant="h5" component="h2" gutterBottom>
+                  <DescriptionIcon sx={{ mr: 1, mb: -0.5 }} /> وصف الخدمة
+                </Typography>
+                <Typography variant="body1">
+                  {service.description}
+                </Typography>
+              </CardContent>
+            </Card>
+          </Grid>
+          <Grid item xs={12} md={4}>
+            <Card>
+              <CardContent>
+                <Typography variant="h6" component="h3" gutterBottom>
+                  <CheckCircleIcon sx={{ mr: 1, mb: -0.5 }} /> الميزات
+                </Typography>
+                <List>
+                  {service.features.map((feature, index) => (
+                    <ListItem key={index}>
+                      <ListItemIcon>
+                        <CheckCircleIcon color="primary" />
+                      </ListItemIcon>
+                      <ListItemText primary={feature} />
+                    </ListItem>
+                  ))}
+                </List>
+              </CardContent>
+            </Card>
+          </Grid>
+          <Grid item xs={12} md={4}>
+            <Card>
+              <CardContent>
+                <Typography variant="h6" component="h3" gutterBottom>
+                  <AttachMoneyIcon sx={{ mr: 1, mb: -0.5 }} /> السعر
+                </Typography>
+                <Typography variant="body1">
+                  {service.price}
+                </Typography>
+              </CardContent>
+            </Card>
+          </Grid>
+          <Grid item xs={12} md={8} sx={{ textAlign: 'center' }}>
+            <Button variant="contained" color="primary">
+              اطلب الخدمة الآن
+            </Button>
+          </Grid>
+          <Grid item xs={12} style={{ width: '100%', textAlign: 'center' }}>
+            <Typography variant="body1" align="center" >
+              Service ID: {id}
+            </Typography>
+          </Grid>
+        </Grid>
+      </Container>
     </div>
   );
 };

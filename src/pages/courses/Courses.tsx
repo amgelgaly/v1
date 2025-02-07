@@ -71,15 +71,15 @@ const Courses = () => {
   const language = document.documentElement.dir === 'rtl' ? 'ar' : 'en';
 
   return (
-    <div className="min-h-screen bg-background pt-16">
-      
-        <PageHeader
-          title={language === 'ar' ? 'الدورات التدريبية' : 'Training Courses'}
-          subtitle={language === 'ar'
-            ? 'تعلم مهارات جديدة وطور قدراتك مع خبرائنا'
-            : 'Learn new skills and develop your capabilities with our experts'}
-        />
-      
+    <div className="min-h-screen bg-background pt-0">
+
+      <PageHeader
+        title={language === 'ar' ? 'الدورات التدريبية' : 'Training Courses'}
+        subtitle={language === 'ar'
+          ? 'تعلم مهارات جديدة وطور قدراتك مع خبرائنا'
+          : 'Learn new skills and develop your capabilities with our experts'}
+      />
+
 
       <div className="container px-4 py-8">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">

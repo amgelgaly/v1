@@ -1,4 +1,6 @@
 import React from 'react';
+import { Button } from '@/components/ui/button';
+import PageHeader from '@/components/layout/PageHeader';
 import { useParams } from 'react-router-dom';
 import { Card, CardContent } from '@/components/ui/card';
 
@@ -7,8 +9,10 @@ const ServiceDetailsPage: React.FC = () => {
 
   return (
     <div>
-      <h1>Service Details</h1>
-      <p>Service ID: {id}</p>
+      <Button variant="outline" onClick={() => window.history.back()}>
+        Back to Services
+      </Button>
+      <PageHeader title="Service Details" />
     </div>
   );
 };
