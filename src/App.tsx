@@ -6,7 +6,9 @@ import Courses from "@/components/sections/Courses";
 import Contact from '@/pages/contact/Contact';
 import { motion } from "framer-motion";
 import { Separator } from "@/components/ui/separator";
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+// import { BrowserRouter, Routes, Route } from 'react-router-dom'; // Remove BrowserRouter
+import { RouterProvider } from 'react-router-dom'; // Import RouterProvider
+import router from './routes'; // Import our router
 import IndexPage from '@/pages/home/Index';
 import AboutPage from '@/pages/about/About';
 import Login from '@/pages/auth/Login';
@@ -27,6 +29,8 @@ import NotFound from '@/pages/error/NotFound';
 import ProtectedRoute from '@/components/auth/ProtectedRoute';
 import ErrorBoundary from '@/components/error/ErrorBoundary'; // Import ErrorBoundary
 import Footer from "@/components/layout/Footer";
+import { CartProvider } from './contexts/CartContext';
+import Cart from './pages/cart/Cart';
 
 function App() {
   useEffect(() => {
@@ -34,8 +38,10 @@ function App() {
   }, []);
 
   return (
-    <BrowserRouter>
-      <ErrorBoundary> {/* Wrap Routes with ErrorBoundary */}
+    <CartProvider>
+      {/* <BrowserRouter> */}
+      <RouterProvider router={router} />
+      {/* <ErrorBoundary>
         <Navbar />
         <Routes>
           <Route path="/" element={<IndexPage />} />
@@ -55,11 +61,13 @@ function App() {
           <Route path="/blog" element={<Blog />} />
           <Route path="/blog/:id" element={<BlogPost />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/cart" element={<Cart />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
         <Footer />
-      </ErrorBoundary>
-    </BrowserRouter>
+      </ErrorBoundary> */}
+      {/* </BrowserRouter> */}
+    </CartProvider>
   );
 }
 

@@ -52,6 +52,7 @@ const Navbar = () => {
       request: 'طلب خدمة',
       orderSchedule: 'جدولة الطلبات',
       about: 'من نحن',
+      cart: 'السلة',
     },
     en: {
       services: 'Our Services',
@@ -65,6 +66,7 @@ const Navbar = () => {
       request: 'Request Service',
       orderSchedule: 'Order Schedule',
       about: 'About Us',
+      cart: 'Cart',
     }
   };
 
@@ -105,25 +107,33 @@ const Navbar = () => {
                   key={link.path}
                   variant="ghost"
                   onClick={() => handleNavigation(link.path)}
-                  className={`text-gray-900 dark:text-gray-100 hover:text-primary transition-colors duration-200 ${
-                    location.pathname === link.path ? 'text-primary' : ''
-                  }`}
+                  className={`text-gray-900 dark:text-gray-100 hover:text-primary ${location.pathname === link.path ? 'text-primary' : ''
+                    }`}
                 >
                   {link.label}
                 </Button>
               ))}
-
-
-              {isAuthenticated ? (
-                <Button
-                  variant="outline"
-                  onClick={handleLogout}
-                  className="text-red-600 hover:text-red-700 hover:bg-red-50 transition-colors duration-200 mr-2 rtl:ml-2"
-                >
-                  <LogOut className="h-4 w-4 mx-2" />
-                  {menuItems[language].logout}
-                </Button>
-              ) : (
+              {isAuthenticated && (
+                <>
+                  <Button
+                    variant="ghost"
+                    onClick={() => handleNavigation('/cart')}
+                    className="text-gray-900 dark:text-gray-100 hover:text-primary"
+                  >
+                    <ShoppingCart className="h-4 w-4 mx-2" />
+                    {menuItems[language].cart}
+                  </Button>
+                  <Button
+                    variant="ghost"
+                    onClick={handleLogout}
+                    className="text-red-600 hover:text-red-700 hover:bg-red-50"
+                  >
+                    <LogOut className="h-4 w-4 mx-2" />
+                    {menuItems[language].logout}
+                  </Button>
+                </>
+              )}
+              {!isAuthenticated && (
                 <Button
                   variant="default"
                   onClick={() => handleNavigation('/login')}
@@ -202,33 +212,35 @@ const Navbar = () => {
                 key={link.path}
                 variant="ghost"
                 onClick={() => handleNavigation(link.path)}
-                className={`w-full text-start text-gray-900 dark:text-gray-100 hover:text-primary ${
-                  location.pathname === link.path ? 'text-primary' : ''
-                }`}
+                className={`w-full text-start text-gray-900 dark:text-gray-100 hover:text-primary ${location.pathname === link.path ? 'text-primary' : ''
+                  }`}
               >
                 {link.label}
               </Button>
             ))}
 
-            <Button
-              variant="ghost"
-              onClick={() => handleNavigation('/order-schedule')}
-              className="w-full text-start text-gray-900 dark:text-gray-100 hover:text-primary"
-            >
-              <ShoppingCart className="h-4 w-4 mx-2" />
-              {menuItems[language].orderSchedule}
-            </Button>
+            {isAuthenticated && (
+              <>
+                <Button
+                  variant="ghost"
+                  onClick={() => handleNavigation('/cart')}
+                  className="w-full text-start text-gray-900 dark:text-gray-100 hover:text-primary"
+                >
+                  <ShoppingCart className="h-4 w-4 mx-2" />
+                  {menuItems[language].cart}
+                </Button>
+                <Button
+                  variant="outline"
+                  onClick={handleLogout}
+                  className="w-full text-start text-red-600 hover:text-red-700 hover:bg-red-50"
+                >
+                  <LogOut className="h-4 w-4 mx-2" />
+                  {menuItems[language].logout}
+                </Button>
+              </>
+            )}
 
-            {isAuthenticated ? (
-              <Button
-                variant="outline"
-                onClick={handleLogout}
-                className="w-full text-start text-red-600 hover:text-red-700 hover:bg-red-50"
-              >
-                <LogOut className="h-4 w-4 mx-2" />
-                {menuItems[language].logout}
-              </Button>
-            ) : (
+            {!isAuthenticated && (
               <Button
                 onClick={() => handleNavigation('/login')}
                 className="w-full bg-primary text-white hover:bg-primary/90"
